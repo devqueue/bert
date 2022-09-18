@@ -33,7 +33,7 @@ if __name__ == "__main__":
         tags=[[0] * len(sentence)]
     )
 
-    device = torch.device("cpu")
+    device = torch.device("cuda")
     model = EntityModel(num_tag=num_tag, num_pos=num_pos)
     model.load_state_dict(torch.load(config.MODEL_PATH))
     model.to(device)
