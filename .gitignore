@@ -1,0 +1,6 @@
+.vscode/
+input/bert-base-uncased
+*.bin
+*.csv
+*.jpg
+__pycache__/
