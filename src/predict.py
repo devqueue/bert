@@ -1,5 +1,5 @@
 import numpy as np
-
+import sys
 import joblib
 import torch
 
@@ -18,9 +18,7 @@ if __name__ == "__main__":
     num_pos = len(list(enc_pos.classes_))
     num_tag = len(list(enc_tag.classes_))
 
-    sentence = """
-    abhishek is going to india
-    """
+    sentence = sys.argv[1]
     tokenized_sentence = config.TOKENIZER.encode(sentence)
 
     sentence = sentence.split()
@@ -35,7 +33,7 @@ if __name__ == "__main__":
 
     device = torch.device("cuda")
     model = EntityModel(num_tag=num_tag, num_pos=num_pos)
-    model.load_state_dict(torch.load(config.MODEL_PATH))
+    model.load_state_dict(torch.load(config.BASE_MODEL_PATH + config.MODEL_PATH))
     model.to(device)
 
     with torch.no_grad():
