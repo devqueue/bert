@@ -33,7 +33,7 @@ if __name__ == "__main__":
 
     device = torch.device("cuda")
     model = EntityModel(num_tag=num_tag, num_pos=num_pos)
-    model.load_state_dict(torch.load(config.BASE_MODEL_PATH + config.MODEL_PATH))
+    model.load_state_dict(torch.load(config.BASE_MODEL_PATH + '/' + config.MODEL_PATH))
     model.to(device)
 
     with torch.no_grad():
